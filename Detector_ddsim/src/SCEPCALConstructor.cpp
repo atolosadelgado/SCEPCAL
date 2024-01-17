@@ -241,6 +241,9 @@ namespace ddSCEPCAL {
         crystalFVol.setVisAttributes(theDetector, crystalFXML.visStr());
         crystalRVol.setVisAttributes(theDetector, crystalRXML.visStr());
 
+        crystalFVol.setSensitiveDetector(sensDet);
+        crystalRVol.setSensitiveDetector(sensDet);
+        
         dd4hep::Box towerAssemblyBoxEndcap(cube,cube,cube);
 
         for (int iPhi=0; iPhi<nPhiEndcap; iPhi++) {
