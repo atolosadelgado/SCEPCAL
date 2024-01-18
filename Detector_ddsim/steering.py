@@ -1,3 +1,6 @@
+# steering.py
+# ddsim --compactFile compact/SCEPCAL.xml --steeringFile steering.py -G -N 1
+
 from DDSim.DD4hepSimulation import DD4hepSimulation
 from g4units import mm, GeV, MeV
 SIM = DD4hepSimulation()
@@ -17,7 +20,7 @@ SIM.macroFile = ""
 ## number of events to simulate, used in batch mode
 SIM.numberOfEvents = 0
 ## Outputfile from the simulation: .slcio, edm4hep.root and .root output files are supported
-SIM.outputFile = "kk.root"
+SIM.outputFile = "kk_edm4hep.root"
 ## Physics list to use in simulation
 SIM.physicsList = None
 ## Verbosity use integers from 1(most) to 7(least) verbose
@@ -196,7 +199,7 @@ SIM.guineapig.particlesPerEvent = "-1"
 ################################################################################
 
 ##  direction of the particle gun, 3 vector 
-SIM.gun.direction = (0, 0, 1)
+#SIM.gun.direction = (0, 0, 1)
 
 ## choose the distribution of the random direction for theta
 ## 
@@ -230,15 +233,15 @@ SIM.gun.etaMin = None
 SIM.gun.isotrop = False
 
 ## Maximal momentum when using distribution (default = 0.0)
-SIM.gun.momentumMax = 10000.0
+#SIM.gun.momentumMax = 10000.0
 
 ## Minimal momentum when using distribution (default = 0.0)
-SIM.gun.momentumMin = 0.0
-SIM.gun.multiplicity = 1
+#SIM.gun.momentumMin = 0.0
+SIM.gun.multiplicity = 100
 SIM.gun.particle = "mu-"
 
 ## Maximal azimuthal angle for random distribution
-SIM.gun.phiMax = "90*deg"
+SIM.gun.phiMax = "180*deg"
 
 ## Minimal azimuthal angle for random distribution
 SIM.gun.phiMin = "0"
@@ -248,10 +251,10 @@ SIM.gun.position = (0.0, 0.0, 0.0)
 
 
 ## Maximal polar angle for random distribution
-SIM.gun.thetaMax = "90*deg"
+SIM.gun.thetaMax = "150*deg"
 
 ## Minimal polar angle for random distribution
-SIM.gun.thetaMin = "0"
+SIM.gun.thetaMin = "30"
 
 
 ################################################################################
@@ -357,10 +360,10 @@ SIM.output.random = 6
 ################################################################################
 
 ## Use the DD4HEP output plugin regardless of outputfilename.
-SIM.outputConfig.forceDD4HEP = True
+SIM.outputConfig.forceDD4HEP = False
 
 ## Use the EDM4HEP output plugin regardless of outputfilename.
-SIM.outputConfig.forceEDM4HEP = False
+SIM.outputConfig.forceEDM4HEP = True
 
 ## Use the LCIO output plugin regardless of outputfilename.
 SIM.outputConfig.forceLCIO = False
